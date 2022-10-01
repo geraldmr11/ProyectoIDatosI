@@ -4,7 +4,7 @@ package Ejecutable;
 import Interfaz.vetana;
 
 /**
- *
+ *Clase main, que nos permite ejecutar el programa
  * @author PC
  */
 public class Main {

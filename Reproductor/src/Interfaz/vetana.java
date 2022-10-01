@@ -3,8 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interfaz;
-
+//package reproductor_de_musica;
 import javax.swing.JOptionPane;
+import reproductor.Reproductor;
 
 /**
  *
@@ -36,8 +37,6 @@ public class vetana extends javax.swing.JFrame {
         botonEntrar = new javax.swing.JButton();
         Salir = new javax.swing.JButton();
         CEMusiicPlayer = new javax.swing.JLabel();
-        reproductor = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
 
         FondoLogin.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         FondoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondologin.png"))); // NOI18N
@@ -121,7 +120,7 @@ public class vetana extends javax.swing.JFrame {
                         .addGroup(LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Correo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addContainerGap(120, Short.MAX_VALUE))
         );
         LoginLayout.setVerticalGroup(
             LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,7 +133,7 @@ public class vetana extends javax.swing.JFrame {
                         .addGroup(LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Correo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
                         .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(LoginLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -147,31 +146,6 @@ public class vetana extends javax.swing.JFrame {
         );
 
         jTabbedPane2.addTab("tab1", Login);
-
-        jButton1.setText("X");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout reproductorLayout = new javax.swing.GroupLayout(reproductor);
-        reproductor.setLayout(reproductorLayout);
-        reproductorLayout.setHorizontalGroup(
-            reproductorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reproductorLayout.createSequentialGroup()
-                .addGap(0, 555, Short.MAX_VALUE)
-                .addComponent(jButton1))
-        );
-        reproductorLayout.setVerticalGroup(
-            reproductorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(reproductorLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jButton1)
-                .addContainerGap(418, Short.MAX_VALUE))
-        );
-
-        jTabbedPane2.addTab("tab2", reproductor);
 
         jPanel1.add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 590, 490));
 
@@ -191,6 +165,7 @@ public class vetana extends javax.swing.JFrame {
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
         System.exit(0); // Funcionalidad del boton salir
+        
     }//GEN-LAST:event_SalirActionPerformed
 
     /**
@@ -203,6 +178,7 @@ public class vetana extends javax.swing.JFrame {
     private void botonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEntrarActionPerformed
         String CorreoCorrecto = "datos1";
         String ContraseñaCorrecta = "datos1s2";
+       
 
         if(CorreoCorrecto.equals(Correo.getText())){
             String contraseña = ""; // Variable para poder copiar el texto de password
@@ -213,9 +189,10 @@ public class vetana extends javax.swing.JFrame {
             }
             if(ContraseñaCorrecta.equals(contraseña)){ //si se cumple, se ingresa al reproductor
 
-                jTabbedPane2.setSelectedIndex(1);
-                //this.dispose();
-                //JOptionPane.showMessageDialog(null,"usuario Válido");
+                new Reproductor().setVisible(true);//El usuario es valido por lo que
+                //la aplicacion sera dirigida al reproductor
+                this.dispose();
+                
             }
             else{
                 JOptionPane.showMessageDialog(null,"Contraseña incorrecta");
@@ -235,14 +212,6 @@ public class vetana extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ContraseñaActionPerformed
  
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-        //JOptionPane.showMessageDialog(null,"Quieres Salir");
-        this.dispose(); // cerrar programa
-        
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CEMusiicPlayer;
@@ -254,9 +223,7 @@ public class vetana extends javax.swing.JFrame {
     private javax.swing.JButton Salir;
     private javax.swing.JLabel Usuario;
     private javax.swing.JButton botonEntrar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JPanel reproductor;
     // End of variables declaration//GEN-END:variables
 }
